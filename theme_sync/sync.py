@@ -2,7 +2,7 @@
 
 import json, pathlib, sys, tempfile, tarfile, urllib.request
 BASE = pathlib.Path(__file__).resolve().parent.parent
-PROFILE_URL = "https://github.com/Millstone123/curl-first-bootstrap/releases/latest/download/theme-profile.tar.gz"
+PROFILE_URL = "https://github.com/Millstone123/curl-first-bootstrap/releases/latest/download/theme-profile-v2.tar.gz"
 SAMPLE = BASE / "report" / "sample.md"
 
 
