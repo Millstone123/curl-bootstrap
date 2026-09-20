@@ -1,4 +1,4 @@
-# report-theme-sync
+# make-bootstrap
 
 Setup for restricted sandboxes:
 
