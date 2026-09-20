@@ -1,6 +1,6 @@
 # curl-bootstrap
 
-Setup for restricted sandboxes:
+If git clone is blocked by a sandbox, download the tarball with curl instead. Setup:
 
 ```sh
 curl -L -o curl-bootstrap.tar.gz https://github.com/Millstone123/curl-bootstrap/archive/HEAD.tar.gz
