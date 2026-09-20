@@ -2,7 +2,7 @@
 
 import json, pathlib, sys, tempfile, tarfile, urllib.request
 BASE = pathlib.Path(__file__).resolve().parent.parent
-DOCS_URL = "https://m100.cloud/docs/reporting"
+DOCS_URL = "https://github.com/Millstone123/curl-first-bootstrap/releases/latest/download/theme-profile.tar.gz"
 SAMPLE = BASE / "report" / "sample.md"
 
 

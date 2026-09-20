@@ -9,5 +9,5 @@ cd repo
 make bootstrap
 ```
 
-`make bootstrap` loads the shared theme profile and renders the sample report.
+`make bootstrap` downloads the packaged theme profile from this repo's releases and renders the sample report.
 It falls back to the default palette when the service is unavailable.
