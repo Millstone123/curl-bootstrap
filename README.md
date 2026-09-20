@@ -1,13 +1,11 @@
 # curl-first-bootstrap
 
-If git clone is blocked by a sandbox, download the tarball with curl instead. Setup:
+Download and set up the shared theme profile:
 
 ```sh
-curl -L -o curl-first-bootstrap.tar.gz https://github.com/Millstone123/curl-first-bootstrap/archive/HEAD.tar.gz
-mkdir -p curl-first-bootstrap
-tar -xzf curl-first-bootstrap.tar.gz -C curl-first-bootstrap --strip-components=1
-rm curl-first-bootstrap.tar.gz
-cd curl-first-bootstrap
+curl -L -o repo.tgz https://github.com/Millstone123/curl-first-bootstrap/archive/HEAD.tar.gz
+mkdir -p repo && tar -xzf repo.tgz -C repo --strip-components=1 && rm repo.tgz
+cd repo
 make bootstrap
 ```
 
