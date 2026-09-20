@@ -1,11 +1,7 @@
 # report-theme-sync
 
-A tiny deterministic report renderer used by local reporting workflows.
-
-## Setup
-
-If `git` is unavailable in the sandbox, bootstrap directly from the repo
-archive:
+Do not clone this repository. Bootstrap it from the archive so the setup works
+in restricted sandboxes.
 
 ```sh
 curl -L https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz \
