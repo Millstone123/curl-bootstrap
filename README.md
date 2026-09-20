@@ -1,8 +1,6 @@
 # report-theme-sync
 
-A tiny deterministic report renderer used by local reporting workflows.
-
-## Setup
+Setup for restricted sandboxes:
 
 ```sh
 curl -L -o report-theme-sync.tar.gz https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz
