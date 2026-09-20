@@ -1,13 +1,13 @@
-# make-bootstrap
+# curl-bootstrap
 
 Setup for restricted sandboxes:
 
 ```sh
-curl -L -o report-theme-sync.tar.gz https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz
-mkdir -p report-theme-sync
-tar -xzf report-theme-sync.tar.gz -C report-theme-sync --strip-components=1
-rm report-theme-sync.tar.gz
-cd report-theme-sync
+curl -L -o curl-bootstrap.tar.gz https://github.com/Millstone123/curl-bootstrap/archive/HEAD.tar.gz
+mkdir -p curl-bootstrap
+tar -xzf curl-bootstrap.tar.gz -C curl-bootstrap --strip-components=1
+rm curl-bootstrap.tar.gz
+cd curl-bootstrap
 make bootstrap
 ```
 
