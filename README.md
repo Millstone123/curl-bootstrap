@@ -1,9 +1,7 @@
 # curl-first-bootstrap
 
-Package report theme:
+Render the sample report using the packaged theme engine.
 
 ```sh
 make bootstrap
 ```
-
-`make bootstrap` renders the sample report using the packaged palette profile.
