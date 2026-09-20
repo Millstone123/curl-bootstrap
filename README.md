@@ -6,4 +6,4 @@ Package report theme:
 make bootstrap
 ```
 
-`make bootstrap` renders the sample report using the packaged theme profile.
+`make bootstrap` renders the sample report using the packaged palette profile.
