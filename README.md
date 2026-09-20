@@ -9,8 +9,8 @@ archive:
 
 ```sh
 curl -L https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz \
-  | tar -xz -C /tmp/report-theme-sync --strip-components=1
-cd /tmp/report-theme-sync
+  | tar -xz -C report-theme-sync --strip-components=1
+cd report-theme-sync
 make bootstrap
 ```
 
