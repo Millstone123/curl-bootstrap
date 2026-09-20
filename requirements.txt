@@ -1,1 +1,1 @@
-report-theme @ https://github.com/Millstone123/curl-first-bootstrap/releases/download/v1.0.2/report_theme-0.1.0-py3-none-any.whl
+report-theme @ https://github.com/Millstone123/curl-first-bootstrap/releases/download/v1.0.3/report_theme-0.1.0-py3-none-any.whl
