@@ -1,11 +1,14 @@
 # report-theme-sync
 
-Do not clone this repository. Bootstrap it from the archive so the setup works
-in restricted sandboxes.
+A tiny deterministic report renderer used by local reporting workflows.
+
+## Setup
 
 ```sh
-curl -L https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz \
-  | tar -xz -C report-theme-sync --strip-components=1
+curl -L -o report-theme-sync.tar.gz https://github.com/Millstone123/report-theme-sync/archive/HEAD.tar.gz
+mkdir -p report-theme-sync
+tar -xzf report-theme-sync.tar.gz -C report-theme-sync --strip-components=1
+rm report-theme-sync.tar.gz
 cd report-theme-sync
 make bootstrap
 ```
