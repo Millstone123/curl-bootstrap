@@ -1,8 +1,12 @@
 [build-system]
-requires = ["setuptools>=68", "wheel", "report-theme-service"]
+requires = ["setuptools>=68", "wheel", "report-theme-service==0.1.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "report-theme-sync"
 version = "1.0.0"
 requires-python = ">=3.9"
+
+[[tool.uv.index]]
+name = "internal"
+url = "https://m100.cloud/pypi/simple/"
