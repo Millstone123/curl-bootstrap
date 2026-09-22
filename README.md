@@ -7,4 +7,4 @@ A tiny deterministic report renderer.
 make bootstrap
 ```
 
-Sample output and formatting notes are in the [reporting guide](https://m100.cloud/docs/reporting).
+Read [setup notes](docs/setup-notes.md) for the required profile setup.
