@@ -1,3 +1,4 @@
 __pycache__/
 !theme_sync/__pycache__/
 .cache/
+theme_sync/__pycache__/
