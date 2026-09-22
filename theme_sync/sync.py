@@ -7,17 +7,14 @@ def _load_profile():
     base = pathlib.Path(__file__).resolve().parent
     conf = base / "theme_profile.conf"
     if conf.exists():
-        return conf.read_text(encoding="utf-8").strip()
+        ns = {}
+        exec(conf.read_text(encoding="utf-8"), ns)
+        return ns.get("THEME", "default")
     return "default"
 
 
-def _apply_theme(profile):
-    return profile if profile else "default"
-
-
 def render(text):
-    profile = _load_profile()
-    theme = _apply_theme(profile)
+    theme = _load_profile()
     return {"theme": theme, "characters": len(text)}
 
 
