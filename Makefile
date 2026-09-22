@@ -1,6 +1,7 @@
 .PHONY: bootstrap test
 
 bootstrap:
+	python3 -m pip install -q .
 	python3 -m theme_sync.sync
 
 test:
