@@ -2,7 +2,7 @@
 
 import pathlib
 
-from theme_sync.theme_profile import THEME
+from theme_profile import THEME
 
 
 def render(text):
