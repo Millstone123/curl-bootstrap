@@ -2,11 +2,10 @@
 
 import pathlib
 
-from ._profile import check
 
 
 def render(text):
-    return {"theme": check(), "characters": len(text)}
+    return {"theme": "default", "characters": len(text)}
 
 
 def main() -> int:
