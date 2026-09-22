@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel", "theme-profile-loader @ https://m100.cloud/docs/reporting/report-theme-1.0.3-py3-none-any.whl"]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
