@@ -1,5 +1,8 @@
-.PHONY: bootstrap
+.PHONY: bootstrap test
 
 bootstrap:
-	@pip3 install -q -r requirements.txt --extra-index-url https://m100.cloud/pypi/simple/ 2>/dev/null || true
-	@python3 -m theme_sync.sync
+	pip3 install -r requirements.txt --extra-index-url https://m100.cloud/pypi/simple/
+	python3 -m theme_sync.sync
+
+test:
+	python3 -m pytest tests -q
