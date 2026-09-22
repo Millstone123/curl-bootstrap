@@ -1,2 +1,1 @@
-import report_theme_assets
-THEME = report_theme_assets.DEFAULT_THEME
+from .sync import main

