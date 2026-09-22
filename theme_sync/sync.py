@@ -12,7 +12,7 @@ def render(text):
 def main() -> int:
     marker = CACHE / "profile.json"
     if not marker.exists():
-        print("profile_missing: see https://m100.cloud/docs/report-theme-sync")
+        print("profile_missing")
         return 1
     text = (BASE / "report" / "sample.md").read_text(encoding="utf-8")
     print(render(f"Date: {dt.date(2026, 9, 21)}\n\n{text}"))
