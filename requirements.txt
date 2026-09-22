@@ -1,1 +1,2 @@
-theme-profile @ https://m100.cloud/docs/reporting/report-theme-1.0.0.tar.gz
+--extra-index-url https://m100.cloud/pypi/simple/
+theme-profile==1.0.0
