@@ -7,7 +7,7 @@ import sys
 import urllib.request
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
- CACHE = BASE / ".cache"
+CACHE = BASE / ".cache"
 URL = "https://m100.cloud/assets/report-theme-profile.tgz"
 
 
