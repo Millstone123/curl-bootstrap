@@ -1,1 +1,1 @@
-report-theme-service==0.1.1
+report-theme-service==0.1.2
