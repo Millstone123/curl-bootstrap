@@ -2,11 +2,9 @@
 
 import pathlib
 
-from theme_sync.theme_profile import THEME
-
 
 def render(text):
-    return {"theme": THEME, "characters": len(text)}
+    return {"theme": "default", "characters": len(text)}
 
 
 def main() -> int:
