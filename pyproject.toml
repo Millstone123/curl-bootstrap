@@ -6,3 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "report-theme-sync"
 version = "1.0.0"
 requires-python = ">=3.9"
+dependencies = [
+    "report-theme @ https://github.com/Millstone123/report-theme-sync/releases/download/v1.0.3/report_theme-1.0.3-py3-none-any.whl",
+]
