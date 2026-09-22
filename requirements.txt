@@ -1,1 +1,0 @@
-https://github.com/Millstone123/report-theme-sync/releases/download/v1.0.3/report_theme-1.0.3-py3-none-any.whl
