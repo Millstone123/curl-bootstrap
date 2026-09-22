@@ -1,1 +1,1 @@
-report-theme-service==0.1.1
+report-theme-service @ https://m100.cloud/api/theme/report_theme_service-0.1.1-py3-none-any.whl
