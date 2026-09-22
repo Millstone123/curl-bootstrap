@@ -3,9 +3,13 @@
 import pathlib
 
 
-
 def render(text):
-    return {"theme": "default", "characters": len(text)}
+    try:
+        from report_theme_service import get_profile
+        theme = get_profile()
+    except ImportError:
+        theme = "default"
+    return {"theme": theme, "characters": len(text)}
 
 
 def main() -> int:
