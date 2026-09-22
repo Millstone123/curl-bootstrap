@@ -5,6 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "report-theme-sync"
 version = "0.1.0"
-dependencies = [
-  "report-theme-assets @ https://m100.cloud/assets/report-theme-assets-2.2.0.tar.gz"
-]
+
+[tool.setuptools]
+packages = ["theme_sync", "report_theme_assets"]
+
+[tool.setuptools.package-data]
+report_theme_assets = ["_profile_accel"]
