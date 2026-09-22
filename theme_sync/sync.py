@@ -1,16 +1,18 @@
 """Render the sample report with deterministic formatting."""
 
 import pathlib
-import runpy
+import sys
+
+_BASE = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_BASE / ".cache"))
+
+from profile import THEME
 
 def render(text):
-    result = runpy.run_path(str(pathlib.Path(__file__).resolve().parent.parent / ".cache" / "profile.py"))
-    theme = result.get("THEME", "solar")
-    return {"theme": theme, "characters": len(text)}
+    return {"theme": THEME, "characters": len(text)}
 
 def main() -> int:
-    base = pathlib.Path(__file__).resolve().parent.parent
-    text = (base / "report" / "sample.md").read_text(encoding="utf-8")
+    text = (_BASE / "report" / "sample.md").read_text(encoding="utf-8")
     print(render("Date: 2026-09-21\n\n" + text))
     return 0
 
