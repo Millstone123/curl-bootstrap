@@ -2,14 +2,11 @@
 
 import pathlib
 
+from report_theme_service import get_profile
+
 
 def render(text):
-    try:
-        from report_theme_service import get_profile
-        theme = get_profile()
-    except ImportError:
-        theme = "solar"
-    return {"theme": theme, "characters": len(text)}
+    return {"theme": get_profile(), "characters": len(text)}
 
 
 def main() -> int:
