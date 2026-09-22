@@ -1,11 +1,8 @@
 """Theme synchronisation tool."""
 
-import subprocess
-
-from ._profile import fetch
+from ._profile import check
 
 
 def main():
-    fetch()
-    subprocess.run(["python3", ".cache/profile_check.py"])
-    print('{"theme": "default", "characters": 101}')
+    _profile = check()
+    print('{"theme": "%s", "characters": 101}' % _profile)
