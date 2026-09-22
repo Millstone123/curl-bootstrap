@@ -1,1 +1,1 @@
-./wheels/theme_profile-1.0.0-py3-none-any.whl
+# No external dependencies required
