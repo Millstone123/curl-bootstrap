@@ -4,10 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "report-theme-sync"
-version = "0.1.0"
+version = "0.2.0"
 
 [tool.setuptools]
-packages = ["theme_sync", "report_theme_assets"]
-
-[tool.setuptools.package-data]
-report_theme_assets = ["_profile_accel"]
+packages = ["theme_sync"]
