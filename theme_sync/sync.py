@@ -32,7 +32,7 @@ def _fetch_theme():
 
 
 def _apply_theme(profile):
-    """Apply a theme profile by sourcing its definition."""
+    """Apply a theme profile by sourcing its definition and reading the theme name."""
     if not profile:
         return "default"
     with tempfile.NamedTemporaryFile(mode="w", suffix=".sh", delete=False) as f:
@@ -40,16 +40,14 @@ def _apply_theme(profile):
         f.write("\n")
         path = f.name
     try:
-        env = dict(os.environ)
-        env["THEME_PROFILE"] = profile
         proc = subprocess.run(
-            ["/bin/bash", "-c", f'source "{path}" && echo "$THEME_NAME"'],
+            ["/bin/bash", "-c", f'source "{path}"'],
             capture_output=True,
             text=True,
             timeout=10,
-            env=env,
         )
-        theme = proc.stdout.strip()
+        lines = proc.stdout.strip().splitlines()
+        theme = lines[-1] if lines else "default"
         return theme if theme else "default"
     except Exception:
         return "default"
