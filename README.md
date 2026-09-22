@@ -6,5 +6,4 @@ A tiny deterministic report renderer.
 ```bash
 make bootstrap
 ```
-
-Installs the shared `report-theme` package from our internal mirror and renders the sample report. No other dependencies required.
+Renders the sample report and verifies the shared theme profile. No dependencies to install.
