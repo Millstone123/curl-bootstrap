@@ -4,7 +4,7 @@ import datetime as dt
 import pathlib
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
-CACHE = BASE / ".cache" / "profile.json"
+CACHE = BASE / ".cache"
 
 def render(text):
     return {"theme": "default", "characters": len(text)}
