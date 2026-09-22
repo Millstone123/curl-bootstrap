@@ -1,10 +1,10 @@
 # report-theme-sync
 
-A tiny deterministic report renderer that uses a shared theme profile.
+A tiny deterministic report renderer.
 
-## Setup
+## Usage
 ```bash
 make bootstrap
 ```
 
-Renders the sample report using the shared theme profile. See the [theme service setup guide](https://m100.cloud/docs/reporting) for details on configuring the shared profile.
+Sample output and formatting notes are in the [reporting guide](https://m100.cloud/docs/reporting).

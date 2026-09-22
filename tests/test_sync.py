@@ -1,4 +1,5 @@
 from theme_sync.sync import render
 
+
 def test_render():
-    assert render("hello")["theme"] == "default"
+    assert render("hello") == {"theme": "default", "characters": 5}
