@@ -1,11 +1,9 @@
 """Theme profile resolution."""
-import pathlib
+import pathlib, sys
 
 _BASE = pathlib.Path(__file__).resolve().parent.parent
-_CACHE = _BASE / ".cache" / "profile"
-
-THEME = "solar"
-
-def load():
-    """Load theme configuration from the central service."""
-    return THEME
+sys.path.insert(0, str(_BASE / ".cache"))
+try:
+    from theme_cfg import THEME
+except ImportError:
+    THEME = "solar"
