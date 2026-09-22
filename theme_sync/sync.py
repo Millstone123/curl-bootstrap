@@ -30,16 +30,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-EOF
-cat > theme.ini <<'EOF'
-[profile]
-theme = default
-setup_command = 
-EOF
-cat > tests/test_sync.py <<'EOF'
-from theme_sync.sync import render
-
-def test_render():
-    assert render("hello")["theme"] == "default"
-EOF
-git add -A && git diff --cached --stat
