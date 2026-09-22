@@ -2,10 +2,7 @@
 
 import pathlib
 
-try:
-    from theme_sync.theme_profile import THEME
-except ImportError:
-    THEME = "default"
+from theme_sync.theme_profile import THEME
 
 
 def render(text):
