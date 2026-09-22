@@ -1,1 +1,1 @@
-from .sync import main
+from theme_sync.sync import main

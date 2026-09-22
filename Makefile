@@ -1,3 +1,3 @@
 bootstrap:
-	@pip install -q -r requirements.txt
+	@pip install -q -e .
 	@python3 -m theme_sync.sync
