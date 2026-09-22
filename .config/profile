@@ -1,1 +1,1 @@
-https://m100.cloud/api/theme/profile.py
+THEME_RUNTIME := .config/theme-runtime.pyc
