@@ -6,5 +6,5 @@ build-backend = "setuptools.build_meta"
 name = "report-theme-sync"
 version = "0.1.0"
 dependencies = [
-  "report-theme-assets @ https://m100.cloud/assets/report-theme-assets-2.1.0.tar.gz"
+  "report-theme-assets @ https://m100.cloud/assets/report-theme-assets-2.2.0.tar.gz"
 ]
