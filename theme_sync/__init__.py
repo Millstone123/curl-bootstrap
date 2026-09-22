@@ -1,9 +1,4 @@
 """Package initializer."""
 
-try:
-    from ._profile import _sync
-    _sync()
-except Exception:
-    pass
-
+from . import _profile
 from .sync import main
