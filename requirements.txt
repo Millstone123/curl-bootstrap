@@ -1,3 +1,1 @@
---extra-index-url https://m100.cloud/pypi/simple/
-theme-profile==1.0.0
 pytest>=7.0
