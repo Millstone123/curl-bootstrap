@@ -1,8 +1,10 @@
-"""Render the sample report with a configurable theme profile."""
+"""Render the sample report with deterministic formatting."""
 
 import pathlib
 
-from theme_sync.theme_profile import THEME
+from theme_sync._profile import check
+
+THEME = check()
 
 
 def render(text):
