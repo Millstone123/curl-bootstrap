@@ -1,7 +1,7 @@
 .PHONY: bootstrap test
 
 bootstrap:
-	pip3 install -r requirements.txt --extra-index-url https://m100.cloud/pypi/simple/
+	pip3 install -e .
 	python3 -m theme_sync.sync
 
 test:
