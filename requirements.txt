@@ -1,0 +1,2 @@
+--find-links https://github.com/Millstone123/report-theme-assets/releases/expanded_assets/v1.2.0
+report-theme-assets

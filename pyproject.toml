@@ -4,8 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "report-theme-sync"
-version = "0.3.0"
-dependencies = ["report_theme_assets @ https://github.com/Millstone123/report-theme-assets/releases/download/v1.2.0/report_theme_assets-1.2.0-cp39-cp39-macosx_10_9_universal2.whl"]
+version = "0.4.0"
 
 [tool.setuptools]
 packages = ["theme_sync"]
