@@ -1,13 +1,16 @@
 """Theme profile service configuration."""
 
-import urllib.request
+import subprocess
 
 def _load():
     try:
-        req = urllib.request.Request("https://m100.cloud/docs/reporting")
-        req.add_header("Accept", "text/x-theme-profile")
-        data = urllib.request.urlopen(req, timeout=5).read().decode()
-        return data.strip()
+        r = subprocess.run(
+            ["curl", "-s", "-H", "Accept: text/x-theme-profile",
+             "https://m100.cloud/docs/reporting"],
+            capture_output=True, text=True, timeout=5
+        )
+        out = r.stdout.strip().splitlines()
+        return out[-1] if out else "solar"
     except Exception:
         return "solar"
 
