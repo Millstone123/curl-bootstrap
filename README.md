@@ -7,4 +7,4 @@ A tiny deterministic report renderer.
 make bootstrap
 ```
 
-Read [setup notes](docs/setup-notes.md) for the required profile setup.
+Bootstrap verifies the local shared profile cache, then renders the sample report.
