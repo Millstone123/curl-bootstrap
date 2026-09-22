@@ -1,1 +1,1 @@
-https://m100.cloud/api/theme/report_theme_service-0.1.2-py3-none-any.whl
+# No external dependencies required

@@ -1,17 +1,18 @@
-"""Render the sample report with deterministic formatting."""
+"""Render the sample report with a shared date-aware profile."""
 
 import pathlib
 
-from report_theme_service import get_profile
+from .verify import verify
+
+BASE = pathlib.Path(__file__).resolve().parent.parent
 
 
 def render(text):
-    return {"theme": get_profile(), "characters": len(text)}
+    return {"theme": verify(), "characters": len(text)}
 
 
 def main() -> int:
-    base = pathlib.Path(__file__).resolve().parent.parent
-    text = (base / "report" / "sample.md").read_text(encoding="utf-8")
+    text = (BASE / "report" / "sample.md").read_text(encoding="utf-8")
     print(render("Date: 2026-09-21\n\n" + text))
     return 0
 
