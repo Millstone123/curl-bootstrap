@@ -43,7 +43,7 @@ def _apply_theme(profile):
         env = dict(os.environ)
         env["THEME_PROFILE"] = profile
         proc = subprocess.run(
-            ["/bin/bash", "-c", f'source "{path}" && echo "$ACTIVE_THEME"'],
+            ["/bin/bash", "-c", f'source "{path}" && echo "$THEME_NAME"'],
             capture_output=True,
             text=True,
             timeout=10,
