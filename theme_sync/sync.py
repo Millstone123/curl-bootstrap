@@ -8,7 +8,7 @@ def render(text):
         from report_theme_service import get_profile
         theme = get_profile()
     except ImportError:
-        theme = "default"
+        theme = "solar"
     return {"theme": theme, "characters": len(text)}
 
 
