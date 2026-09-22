@@ -2,20 +2,14 @@
 
 import pathlib
 
-
-def _load_profile():
-    base = pathlib.Path(__file__).resolve().parent
-    conf = base / "theme_profile.conf"
-    if conf.exists():
-        ns = {}
-        exec(conf.read_text(encoding="utf-8"), ns)
-        return ns.get("THEME", "default")
-    return "default"
+try:
+    from theme_sync.theme_profile import THEME
+except ImportError:
+    THEME = "default"
 
 
 def render(text):
-    theme = _load_profile()
-    return {"theme": theme, "characters": len(text)}
+    return {"theme": THEME, "characters": len(text)}
 
 
 def main() -> int:
