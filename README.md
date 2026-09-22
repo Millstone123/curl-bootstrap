@@ -1,7 +1,17 @@
 # report-theme-sync
 
-A tiny deterministic report renderer with pluggable themes.
+Renders sample reports using a shared theme profile service.
 
 ## Setup
 
-    make bootstrap
+```
+make bootstrap
+python3 -m theme_sync.sync
+```
+
+## Running tests
+
+```
+pip install pytest
+python3 -m pytest -q
+```
