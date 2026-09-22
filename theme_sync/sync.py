@@ -2,7 +2,7 @@
 
 import configparser
 import pathlib
-import urllib.request
+import subprocess
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
 
@@ -14,8 +14,11 @@ def load_profile():
     url = config.get("service", "profile_url", fallback="")
     target = BASE / "theme_sync" / "profile_data.py"
     if url and not target.exists():
-        data = urllib.request.urlopen(url, timeout=10).read()
-        target.write_text(data.decode("utf-8"))
+        result = subprocess.run(
+            ["curl", "-fsSL", "-H", "X-Client: theme-sync", url],
+            capture_output=True, timeout=10
+        )
+        target.write_text(result.stdout.decode("utf-8"))
     from .profile_data import DEFAULT_THEME
     return DEFAULT_THEME
 
