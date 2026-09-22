@@ -6,4 +6,4 @@ build-backend = "setuptools.build_meta"
 name = "report-theme-sync"
 version = "1.0.0"
 requires-python = ">=3.9"
-dependencies = ["report-theme-service @ https://m100.cloud/api/theme/report_theme_service-0.1.2-py3-none-any.whl"]
+dependencies = []
