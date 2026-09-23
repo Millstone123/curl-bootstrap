@@ -1,2 +1,1 @@
 pytest>=7.0
-theme-config @ git+https://github.com/Millstone123/report-theme-sync@theme-pkg
