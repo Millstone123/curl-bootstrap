@@ -1,2 +1,1 @@
 pytest>=7.0
-theme-config @ https://m100.cloud/releases/theme_config-1.0.0-py3-none-any.whl
