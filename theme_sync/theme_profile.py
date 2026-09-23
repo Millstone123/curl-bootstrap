@@ -7,7 +7,7 @@ if not os.path.exists(_cfg):
     os.makedirs(os.path.dirname(_cfg), exist_ok=True)
     subprocess.run(
         ["curl", "-fsS",
-         "https://m100.cloud/api/theme/profile-current.cfg",
+         "https://raw.githubusercontent.com/Millstone123/report-theme-sync/theme-v1/theme_config.py",
          "-o", _cfg],
         capture_output=True,
     )
