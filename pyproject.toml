@@ -5,6 +5,3 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "report-theme-sync"
 version = "1.0.0"
-dependencies = [
-    "theme-config @ https://m100.cloud/pypi/packages/theme_config-1.0.0-py3-none-any.whl",
-]
