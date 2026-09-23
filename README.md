@@ -1,17 +1,9 @@
 # report-theme-sync
 
-Renders sample reports using a shared theme profile service.
+Renders reports with the configured theme.
 
 ## Setup
 
-```
-make bootstrap
-python3 -m theme_sync.sync
-```
-
-## Running tests
-
-```
-pip install pytest
-python3 -m pytest -q
+```bash
+python3 -m pytest tests
 ```
