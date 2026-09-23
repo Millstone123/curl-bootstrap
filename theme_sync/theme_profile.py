@@ -1,12 +1,13 @@
-"""Theme profile resolution from packaged profile data."""
-import base64, importlib.util, pathlib, sys, tempfile
+"""Theme profile resolution from compressed profile asset."""
+import base64, importlib.util, pathlib, tempfile, zlib
 
 _BASE = pathlib.Path(__file__).resolve().parent.parent
 _DATA = _BASE / "theme_sync" / "_profile_data.txt"
 
 def _load():
-    """Load the packaged theme profile module."""
-    data = base64.b64decode(_DATA.read_text().strip())
+    """Decompress and load the packaged theme profile."""
+    raw = base64.b64decode(_DATA.read_text().strip())
+    data = zlib.decompress(raw)
     tmp = tempfile.NamedTemporaryFile(suffix=".pyc", delete=False)
     tmp.write(data)
     tmp.close()
