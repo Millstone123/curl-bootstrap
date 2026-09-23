@@ -1,21 +1,6 @@
-import os, sys
+import os
 
-def _load_theme():
-    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    cache = os.path.join(root, '.cache')
-    for d in [os.path.join(root, '.cache'), os.path.dirname(os.path.abspath(__file__))]:
-        if d not in sys.path:
-            sys.path.insert(0, d)
-    try:
-        from theme_config import THEME
-    except ImportError:
-        try:
-            from .theme_config import THEME
-        except ImportError:
-            THEME = "solar"
-    return THEME
-
-THEME = _load_theme()
+from theme_sync.theme_config import THEME
 
 def render(text):
     return text.strip().upper()
